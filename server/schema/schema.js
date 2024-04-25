@@ -1,6 +1,9 @@
 const graphql = require("graphql");
 const _ = require("lodash");
 
+// parent -> takes the id of the element in the previous field (the parent)
+// args -> takes the given id
+
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -34,7 +37,7 @@ const BookType = new GraphQLObjectType({
     author: {
       type: AuthorType,
       resolve(parent, args) {
-        return _.find(authors, { id: parent.authorId }); // parent -> takes the id of the element in the previous field (the parent)
+        return _.find(authors, { id: parent.authorId }); 
       },
     },
   }),
@@ -62,7 +65,7 @@ const RootQuery = new GraphQLObjectType({
       type: BookType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(books, { id: args.id }); // args -> takes the given id
+        return _.find(books, { id: args.id });
       },
     },
     author: {
