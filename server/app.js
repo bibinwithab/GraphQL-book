@@ -4,7 +4,7 @@ const schema = require("./schema/schema");
 const { mongoose } = require("mongoose");
 require("dotenv").config();
 
-const PORT = 3000;
+const PORT = 8000;
 const app = express();
 
 app.use(
