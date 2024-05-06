@@ -5,6 +5,7 @@ const BOOK_QUERY = gql`
     books {
       name
       id
+      genre
       author {
         name
       }
